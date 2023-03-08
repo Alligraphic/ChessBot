@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{% static 'chess.css' %}"/>
+<head>
+<meta charset="UTF-8">
+<title>Chessboard using Pure CSS and HTML</title>
+
+</head>
+<body>
+<div class="chessboard">
+<!-- 1st -->
+{% for square in board %}
+    <div class="{{ square.color }}">
+    {% if square.piece != "" %}
+    <img class="piece" src="{% static "pieces" %}/{{ square.piece }}.png" alt="{{ square.piece }}">
+    {% endif %}
+    </div>
+{% endfor %}
+
+</div>
+</body>
+</html>
