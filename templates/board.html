@@ -3,6 +3,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="{% static 'chess.css' %}"/>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
 <head>
 <meta charset="UTF-8">
 <title>Chessboard using Pure CSS and HTML</title>
@@ -12,9 +27,13 @@
 <div class="chessboard">
 <!-- 1st -->
 {% for square in board %}
-    <div class="{{ square.color }}">
+    <div class="{{ square.color }}" ondrop="drop(event)" ondragover="allowDrop(event)">
     {% if square.piece != "" %}
-    <img class="piece" src="{% static "pieces" %}/{{ square.piece }}.png" alt="{{ square.piece }}">
+        <label>
+        <input type="radio" name = "test" value="small">
+        <img class="piece" id="{{ square.piece }}" src="{% static "pieces" %}/{{ square.piece }}.png" alt="{{ square.piece }}"
+             draggable="true" ondragstart="drag(event)">
+        </label>
     {% endif %}
     </div>
 {% endfor %}

@@ -9,13 +9,31 @@ img {
     max-height: 100%;
 }
 
-.piece {
-    cursor: grab;
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-.piece:active{
-    cursor: grabbing;
+.piece {
+    /*position: absolute;*/
+    cursor: pointer;
 }
+
+[type=radio] + .piece {
+    /*position: absolute;*/
+    cursor: pointer;
+    /*opacity: 50%;*/
+}
+[type=radio]:checked + .piece {
+    /*position: absolute;*/
+    cursor: pointer;
+    opacity: 50%;
+}
+/*.piece:active{*/
+/*    cursor: grabbing;*/
+/*}*/
 
 .chessboard {
     width: 640px;

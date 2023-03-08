@@ -13,12 +13,12 @@ def fen_to_matrix(fen):
     return board
 
 
-# generate a 8*8 matrix of black and white squares
+# generate an 8*8 matrix of black and white squares
 def generate_board():
     board = []
     for i in range(8):
         for j in range(8):
-            if (i + j) % 2 == 0:
+            if (i + j) % 2 == 1:
                 board.append("white")
             else:
                 board.append("black")
