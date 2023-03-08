@@ -11,5 +11,8 @@ def index(request):
     board = []
     for i in range(64):
         board.append({"color": board_color[i], "piece": chess_matrix[i]})
+        # add id to each piece
+        if board[i]["piece"] != "":
+            board[i]["id"] = board[i]["piece"][1] + str(i)
     return render(request, "board.html", {'board': board})
 

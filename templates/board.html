@@ -31,7 +31,7 @@ function drop(ev) {
     {% if square.piece != "" %}
         <label>
         <input type="radio" name = "test" value="small">
-        <img class="piece" id="{{ square.piece }}" src="{% static "pieces" %}/{{ square.piece }}.png" alt="{{ square.piece }}"
+        <img class="piece" id="{{ square.id }}" src="{% static "pieces" %}/{{ square.piece }}.png" alt="{{ square.piece }}"
              draggable="true" ondragstart="drag(event)">
         </label>
     {% endif %}
